@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %} User {% endblock %}
+{% block content %}
+{% include 'user_nav.html' %}
+
+<br />
+<div class="row">
+{% for u in user_list %}
+
+    <div class="small-12 columns">
+    <article class="event">
+
+        <div class="event-date">
+          <p class="event-month">{{ u.username }}</p>
+          <p class="event-day">ایمیل: {{ u.email }}</p>
+        </div>
+
+        <div class="event-desc">
+           <p class="event-desc-detail">اخرین بازدید {{ u.last_login }}</p>
+          <p class="event-desc-detail"><span class="event-desc-time"></span>تاریخ عضویت: {{ u.date_joined }}</p>
+          <a href="user/{{u.username}}" class="rsvp button">لیست کتاب های بررسی شده</a>
+        </div>
+
+      </article>
+
+      <hr>
+  </div>
+
+
+
+{% endfor %}
+</div>
+
+{% if is_paginated %}
+
+
+        <div class="pagination">
+            <ul class="pagination" role="navigation" aria-label="Pagination">
+                {% if page_obj.has_previous %}
+                  <li class="pagination-previous">  <a href="author?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    <li><a href="book?page=1"aria-label="1">1</a></li>
+                        <li class="ellipsis" aria-hidden="true"></li>
+                            <li class="current"><span class="show-for-sr">
+                                {{ page_obj.number }}</span>{{ page_obj.number }}</li>
+                                <li class="ellipsis" aria-hidden="true"></li>
+                                <li><a href="author?page={{ page_obj.paginator.num_pages }}"
+                                    aria-label="{{ page_obj.page_number }}">
+                                    {{ page_obj.paginator.num_pages }}</a></li>
+                </span>
+                {% if page_obj.has_next %}
+                   <li class="pagination-next"> <a href="author?page={{ page_obj.next_page_number }}">next</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+
+{% endblock %}

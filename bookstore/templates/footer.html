@@ -1,0 +1,63 @@
+<footer>
+	<div class="row expanded callout secondary">
+	<div class="small-6 large-3 columns">
+
+
+{% load poll_extras %}
+
+
+	<p class="lead">Link</p>
+
+
+
+{% get_link as link %}
+{% get_advertisment as advertisment %}
+
+	<ul class="menu vertical">
+		{% for l in link %}
+		<li><a href="{{ l.a_link }}">{{ l.title }}</a></li>
+		{% empty %}
+		<li><a href="{{ l.a_link }}">Not found</a></li>
+		{% endfor %}
+	</ul>
+	</div>
+	<div class="small-6 large-3 columns">
+	<p class="lead">Advertisment</p>
+	<ul class="menu vertical">
+		{% for a in advertisment %}
+		<li><a href="{{ a.a_link }}">{{ a.title }}</a></li>
+		{% empty %}
+		<li><a href="{{ a.a_link }}">Not found</a></li>
+		{% endfor %}
+	</ul>
+	</div>
+	<div class="small-6 large-3 columns">
+	<p class="lead">Tools</p>
+	<ul class="menu vertical">
+	<li><a href="feed"><i class="fi-social-rss"></i> Rss</a></li>
+	<li><a href="#"><i class="fi-social-mobile"></i> Mobile</a></li>
+	</ul>
+	</div>
+	<div class="small-6 large-3 columns">
+	<p class="lead">Offices</p>
+	<ul class="menu vertical">
+	<li><a href="{% url 'bookstore:contact'  %}">تماس با ما</a></li>
+	<li><a href="{% url 'bookstore:about_list'  %}">ارتباط با ما</a></li>
+	</ul>
+	</div>
+	</div>
+	<div class="row">
+	<div class="medium-6 columns">
+	<ul class="menu">
+	<li><a href="Legal">حق قانونی</a></li>
+	<li><a href="javascript:window.print()">چاپ صفحه</a></li>
+	<li><a href="#">Explore</a></li>
+	</ul>
+	</div>
+	<div class="medium-6 columns">
+	<ul class="menu float-right">
+	<li class="menu-text">کلیه حقوق راحت باش(صلواتی)</li>
+	</ul>
+	</div>
+	</div>
+</footer>

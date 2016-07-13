@@ -1,28 +1,28 @@
 {% url 'bookstore:index' as url_bookstore_index %}
 
+<div class="top-bar" id="realEstateMenu">
+<div class="top-bar-right">
+<ul class="menu accordion-menu" data-responsive-menu="accordion" role="tablist" aria-multiselectable="true" data-accordionmenu="78aeos-accordionmenu" data-responsivemenu="79jy5v-responsivemenu">
+<li class="menu-text" role="menuitem">Interplanetary</li>
+<li role="menuitem"><a href="{{ url_bookstore_index }}">home</a></li>
+<li role="menuitem"><a href="{% url 'bookstore:book_list' %}">books</a></li>
+<li role="menuitem"><a href="{% url 'bookstore:author_list' %}">Author</a></li>
+<li role="menuitem"><a href="{% url 'bookstore:user_list' %}">User</a></li>
+</ul>
+</div>
+<div class="top-bar-left">
+<ul class="menu">
 {% if not user.is_anonymous %}
-<h2>{{ user.username }}</h2>
-
-<p>
-<a href='{{ url_bookstore_index }}'>Home</a>
-</p>
-
-<p>
-{% url 'bookstore:logout' as logout_url %}
-<a href='{{ logout_url }}'>Logout</a>
-</p>
-
+    {% url 'bookstore:logout' as logout_url %}
+<li><a href="{{ logout_url }}">Logout &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ user.username }}</a></li>
 {% else %}
-<p>
-You are not logged in.
-</p>
-
-<p>
-<a href='{{ url_bookstore_index }}'>Home</a>
-</p>
-
-<p>
-{% url 'bookstore:login' as login_url %}
-<a href='{{ login_url }}'>Login</a>
-</p>
+	{% url 'bookstore:login' as login_url %}
+<li><a class="button" href="{{ login_url }}">Login</a></li>
+</ul>
+</div>
+</div>
 {% endif %}
+			
+
+	</div>
+</div>

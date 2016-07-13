@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}About{% endblock %}
+{% block content %}
+{% include 'user_nav.html' %}
+<br />
+<div class="row column log-in-form">
+{% for about in about_list %}
+<p>{{about.title|safe}}</p>
+<br />
+<p>{{about.context|safe}}</p>
+</div>
+<br />
+
+
+{% endfor %}
+{% endblock %}

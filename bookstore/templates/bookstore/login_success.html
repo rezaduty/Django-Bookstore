@@ -3,6 +3,8 @@
 {% block title %}Bookstore Login{% endblock %}
 
 {% block content %}
+{% include 'user_nav.html' %}
+
 <h1>Login</h1>
 
 {% if user.is_authenticated %}

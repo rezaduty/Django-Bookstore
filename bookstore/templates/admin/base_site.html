@@ -1,0 +1,35 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrastyle %}
+
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/behzadi/persianDatepicker/master/css/persianDatepicker-default.css" />
+<link rel="stylesheet" href="/static/admin/css/login.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+        <script src="stylesheet" href="https://cdn.rawgit.com/mousavian/bootstrap-jalali-datepicker/master/bootstrap-datepicker.min.js" /></script>
+        <script src="https://cdn.rawgit.com/behzadi/persianDatepicker/master/js/persianDatepicker.min.js"></script>
+        <script src="https://cdn.rawgit.com/behzadi/persianDatepicker/master/js/jquery-1.10.1.min.js"></script>
+         <link rel="stylesheet" href="https://cdn.rawgit.com/mousavian/bootstrap-jalali-datepicker/master/demo/css/bootstrap.min.css" />
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+         <link href='http://www.fontonline.ir/css/BYekan.css' rel='stylesheet' type='text/css'>
+<style>
+	body{
+		font-family: BYekan,'BYekan',tahoma;
+	}
+	#header {
+		background-color: ##EDA0A0;
+	}
+	*{
+		font-family:BYekan,'BYekan',tahoma;
+        font-size:12px;
+	}
+</style>
+{% endblock %}
+
+{% block branding %}
+<h6 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h6>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

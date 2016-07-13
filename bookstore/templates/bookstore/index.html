@@ -1,21 +1,49 @@
 {% extends 'base.html' %}
+{% load poll_extras %}
 
 {% block title %}Bookstore Home{% endblock %}
 
 {% block content %}
-
 {% include 'user_nav.html' %}
+{% load poll_extras %}
+{% get_review as review %}
 
-<h1>This is a bookstore.</h1>
+<br />
+<div class="row">
+<div class="column small-4 float-right">
 
-<p>
-{% url 'bookstore:user_review_list' username=user.username as url_user_review_list %}
-<a href='{{ url_user_review_list }}'>Get list of reviews by <b>{{ user.username }}</b></a>
-</p>
 
-<p>
-{% url 'bookstore:book_list' as url_book_list %}
-<a href='{{ url_book_list }}'>Get list of books in the bookstore</a>
-</p>
+	{% include 'notice.html' %}
+</div>
+
+
+{% get_notice as notice %}
+
+{{notice.notice_title}}
+
+ <div class="column small-4 float-right">
+	<div class="column">
+	<div class="callout">
+	<p>کتاب روز</p>
+	{% url 'bookstore:book_list' as url_book_list %}
+	<p><img src="http://placehold.it/400x370&amp;text= کتابخوانه" alt="image of a planet called Pegasi B"></p>
+	<a class="lead" href='{{ url_book_list }}'>Get list of books in the bookstore</a>
+	<p class="subheader">لیست کتاب ها</p>
+	</div>
+	</div>
+	
+</div>
+
+
+
+
+<div class="column small-4 float-right">
+
+
+	{% include 'fun.html' %}
+</div>
+
+</div>
+
 
 {% endblock %}

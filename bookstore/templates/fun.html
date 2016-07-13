@@ -1,0 +1,72 @@
+{% load poll_extras %}
+{% get_day as day %}
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  detectOS();
+  getIP();
+  detectBrowser();
+  cookieIs();
+});
+function detectOS() {
+  var OSName="Unknown";
+  if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+  if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+  if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+  if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+  $(".OSname").html(OSName);
+}
+function getIP() {
+  $.ajax({
+    url: "http://ipinfo.io",
+        dataType: "jsonp",
+        success: function(data){
+          console.log(data);
+    var cityRegion = data.city +', '+data.region,
+        ip = data.ip;
+        $('.city-region').text(cityRegion);
+        $('.ip').text(ip);
+      }
+  });
+}
+function cookieIs() {
+  console.log(navigator.cookieEnabled);
+  if (navigator.cookieEnabled == true) {$(".Cookie").html("Yes");} 
+    else 
+    {$(".Cookie").html("No");};
+}
+function detectBrowser() {
+  if ( navigator.appVersion.indexOf("MSIE 8.") != -1 ){
+      $('.Browser').html('ie8');  
+  }
+  if ( navigator.appVersion.indexOf("MSIE 9.") != -1 ){
+      $('.Browser').html('ie9');
+  }
+  if ( navigator.appVersion.indexOf("MSIE 10.") != -1 ){
+      $('.Browser').html('ie10');
+  }
+  if( /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) ){
+    $('.Browser').html('Chrome');
+  }
+  if( /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor) ){
+    $('.Browser').html('safari');
+  }
+  if( navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ) {
+    $('.Browser').html('firefox');
+  }
+  if( !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0 ) {
+    $('.Browser').html('opera');
+  }
+}
+</script>
+
+    <div class="info">
+  <p class="label">سیستم عامل شما: </p>
+  <p class="OSname">ناشناس</p><hr />
+  <p class="label">مرورگر شما: </p>
+  <p class="Browser">ناشناس</p><hr />
+  <p class="label">IP شما: </p>
+  <p class="IP">...</p><hr />
+  <p class="label">کوکی فعال است (بله/ خیر): </p>
+  <p class="Cookie">ناشناس</p>
+</div>

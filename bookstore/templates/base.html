@@ -1,15 +1,155 @@
-<html>
-
+<html lang="fa-IR" dir="rtl"><head>
 <head>
 <title>{% block title %}{% endblock %}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css"
+<script src="//cdn.ckeditor.com/4.5.5/standard/ckeditor.js"></script>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/foundation/6.1.2/foundation.min.js"></script>
+<link href='http://www.fontonline.ir/css/BYekan.css' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<meta class="foundation-mq">
+<style type="text/css">
+
+
+
+
+
+
+p,a,li{
+    font-family:BYekan,'BYekan',tahoma;
+    font-size:14px;
+  }
+h1{
+    font-family:BYekan,'BYekan',tahoma;
+    font-size:15px;
+}
+
+
+.log-in-form {
+  border: 1px solid #cacaca;
+  padding: 1rem;
+  border-radius: 3px; }
+
+.article-card {
+  border: 1px solid #d7d7d7;
+  margin-bottom: 1.5rem;
+  box-shadow: 2px 4px 5px 0px #d7d7d7; }
+  .article-card .card-content {
+    background: #fff;
+    margin: 1.25rem; }
+    .article-card .card-content .post-author {
+      text-align: center; }
+    .article-card .card-content h4 {
+      color: #CF000F; }
+    .article-card .card-content p {
+      color: #757D75; }
+    .article-card .card-content a i {
+      font-weight: 300;
+      color: #757D75;
+      margin: 0 .5rem;
+      padding: 5px 7px 5px 7px;
+      border: 1px solid #757D75;
+      border-radius: 50%; }
+    .article-card .card-content img.post-icon {
+      position: absolute;
+      width: 3rem;
+      border-radius: 50%;
+      margin-top: -3rem; }
+
+
+.weather {
+  border: 1px solid #eee;
+  box-shadow: 0 2px 0 rgba(204, 204, 204, 0.15);
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  background: white;
+  position: relative; }
+  .weather .header {
+    background: #fc6e51;
+    height: 6.2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 6.2rem;
+    padding: 0 1.25rem;
+    overflow: hidden;
+    position: relative; }
+    .weather .header h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: bold;
+      -webkit-margin-before: 0.83em;
+      -webkit-margin-after: 0.83em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px; }
+  .weather .weather-icon {
+    position: absolute;
+    right: 1.25rem;
+    top: 2.2rem;
+    font-size: 1.7rem;
+    line-height: 1em; }
+  .weather .weather-icon-shadow {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.05);
+    font-size: 8rem;
+    top: -1.25rem;
+    right: -1.25rem;
+    transform: rotate(-20deg); }
+  .weather ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .weather .day {
+    padding: 1.25rem 1.9rem;
+    border-bottom: 1px solid #f2f2f2;
+    color: #888888; }
+    .weather .day:last-child {
+      border-bottom: none; }
+    .weather .day .image {
+      display: block;
+      float: left;
+      margin-right: 0.75rem; }
+    .weather .day .day-title {
+      text-transform: uppercase;
+      color: #666666;
+      font-weight: 600; }
+    .weather .day .day-icon {
+      margin-top: -0.7rem;
+      color: #666666;
+      font-size: 1.25rem;
+      float: right; }
+
+
+</style>
 </head>
 
 <body>
-<div id='content'>
+<script type="text/javascript">
+         CKEDITOR.replace( 'messageArea',
+         {
+          customConfig : 'config.js',
+          toolbar : 'simple'
+          })
+</script> 
+
 
 {% block content %}
+
+
+
 {% endblock %}
-</div>
+
+
+{% include 'footer.html' %}
+
+
 </body>
 
 </html>

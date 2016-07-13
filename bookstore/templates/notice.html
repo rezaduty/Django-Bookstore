@@ -1,0 +1,10 @@
+{% load poll_extras %}
+{% get_notice as notice %}
+<h1>اطلاعیه</h1>
+{% for n in notice %}
+<div class="success callout" data-closable="slide-out-right" style="top:22%;width:100%;">
+        <h5>{{ n.notice_title|safe }}</h5>
+        <p>{{ n.notice_context|safe }}</p>
+        <p class="float-left">{{ n.timestamp }}</p>
+      </div>
+{% endfor %}

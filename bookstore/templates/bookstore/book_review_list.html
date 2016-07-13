@@ -6,22 +6,58 @@
 
 {% include 'user_nav.html' %}
 
-<h1>{{ book.title }}</h1>
-<h2>by {{ book.author }}</h2>
-{% if review_list %}
-<h3>{{ review_list|length }} review{{ review_list|pluralize}}</h2>
-<h3>Average rating: {{ average_rating }}</h3>
+
+<br />
+<div class="row column log-in-form">
+<div class="off-canvas-wrap move-right" data-offcanvas="">
+  <div class="inner-wrap">
+
+    
+
+    <!-- Off Canvas Menu -->
+    
+
+    <!-- main content goes here -->
+    <header class="row">
+      <div class="small-12 columns">
+        <h1 class="text-center">{{ book.title|safe }}</h1>
+        <p>توسط {{ book.author }}</p>
+      </div>
+    </header>
+    
+    <div class="row ad-block">
+      
+      <div class="medium-6 medium-push-6 columns float-left">
+        <img src="{{ book.img_patch.url }}" alt="">
+      </div>
+      
+      <div class="medium-6 medium-pull-6 columns">
+			<p class="float-right">{{ book.content|safe }}</p>
+
+			</p>
+			</div>
+      </div>
+
+    </div>
+    {% if review_list %}
+<h5> بررسی {{ review_list|length }} {{ review_list|pluralize}}</h5>
+<h5>میانگین رای: {{ average_rating }}</h5>
 {% endif %}
 
-{% for review in review_list %}
-<div class="review" id="review-{{ forloop.counter }}">
-<p>{{ review.user.username }} ({{ review.timestamp }})</p>
-<p>{{ review.rating }} out of 5</p>
-<p>
-{{ review.review_message }}
-</p>
+    
 </div>
-{% empty %}
-<p>There are no reviews for this book.</p>
-{% endfor %}
+
+
+
+
+</div>
+<br />
+
+</div>
+
+<br />
+
+
+
+
 {% endblock %}
