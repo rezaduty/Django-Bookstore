@@ -1,5 +1,5 @@
 #Django Bookstore
-##by Rolph Recto
+######by Rolph Recto but add design, some feature by (reza.duty)
 
 Django bookstore applicaton that stores information about books. Future functionality includes user ratings and reviews.
 
